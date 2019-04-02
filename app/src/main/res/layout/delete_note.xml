@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:id="@+id/hadahowa"
+              android:layout_height="wrap_content">
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Enter Title"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:id="@+id/title_delete"/>
+
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Enter Note"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/note_delete"/>
+
+
+    <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="33dp"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content">
+        <Button
+
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:text="Delete"
+                android:textAllCaps="false"
+                android:layout_width="120dp"
+                android:background="@color/colotbat"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_delete_note"/>
+        <Button
+
+
+
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:text="update"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:layout_width="120dp"
+                android:background="#062035"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_update_note"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

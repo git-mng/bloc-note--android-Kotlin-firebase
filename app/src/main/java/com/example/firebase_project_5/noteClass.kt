@@ -7,7 +7,7 @@ class noteClass{
 
 
 
-// zedt var  id   3la hssab kkey id lidart fi manactivity
+
 
 
     var id: String? = null

@@ -22,9 +22,9 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
 
-    var myRef: DatabaseReference? = null    // dertha hna yban liya lta7 ba3d a9wass per usalo e chiamrlo lii
+    var myRef: DatabaseReference? = null    
 
-    var mNoteList: ArrayList<noteClass>? = null      // eccolo arraylist del noteclass per chiamare i suoi variabile
+    var mNoteList: ArrayList<noteClass>? = null      
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,10 +42,9 @@ class MainActivity : AppCompatActivity() {
 
         var database = FirebaseDatabase.getInstance()
 
-        myRef = database.getReference("NotesObeject")   // inchaell object dakhel root
+        myRef = database.getReference("NotesObeject")   
 
 
-        // ora devo fare inizialiasent lil array list lilfo9
 
 
         mNoteList = ArrayList()
@@ -53,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
 
         add_new_note.setOnClickListener {
-            // hadi function dial lcode min nkliki y7al liya fin naktab
+           
 
             showDialogShow()
 
@@ -72,9 +71,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        // start
-
-        // hna fin ghatftah new activity lifiha information note
+        
 
 
  note_list_view.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
@@ -85,21 +82,20 @@ class MainActivity : AppCompatActivity() {
 
 
 
-         // wala chaye howa njib constructor fin kaydozo les datas
 
          var myNotes = mNoteList!!.get(position)
 
-         // poi njib var dial noteclass lihuya asslan kant dawazt l mNoteList
+ 
 
          var titleactivity = myNotes.title
          var nooteteActivity = myNotes.note
 
-         // daba 3amaliya monadat 3la activit
+    
 
 
          var noteIntent = Intent(this, noteActivity::class.java)
 
-         noteIntent.putExtra("title_key", titleactivity)   // irsal ma3lomat min hna
+         noteIntent.putExtra("title_key", titleactivity)   
 
          noteIntent.putExtra("note_key", nooteteActivity)
 
@@ -117,23 +113,7 @@ class MainActivity : AppCompatActivity() {
  }
 
 
-        //End
 
-
-
-
-
-
-
-
-
-
-
-
-        // start
-
-        // questa function la uso per remove and update informazione in myapp note
-        // qui la parte del lon click dove devo clickare per un tempo per aprire un attivita
 
 
 
@@ -171,35 +151,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-       /*
-                // qui chimao il id del key  intendo il key quello objectto non quello il secondo
-                //  qundi faccio cosi
-
-
-                // id dial noteclass ghanjibo min myNoteforLonClick lideja jaybha quindi nakho lvar dialha poi nzidha id
-
-
-                var childReference = myRef!!.child(myNoteforLonClick.id!!)
-
-
-                // qui ho chimato variabile da noteClss
-
-
-                var actionremovetitle = view.title_delete.text.toString()
-                var actiondeleteNote = view.note_delete.text.toString()
-
-
-                // hna ghanjib les autre varialble min noteClass
-
-                var afterUpdate = noteClass(myNoteforLonClick.id!!, actionremovetitle, actiondeleteNote, getCurrentDate())
-
-
-
-                childReference?.setValue(afterUpdate)
-
-*/
-
-       // ora scrivo un codice bereve
+       
 
 
        var afterUpdate = noteClass(myNoteforLonClick.id!!, view.title_delete.text.toString(), view.note_delete.text.toString(), getCurrentDate())
@@ -208,7 +160,7 @@ class MainActivity : AppCompatActivity() {
         myRef!!.child(myNoteforLonClick.id!!).setValue(afterUpdate)
 
 
-                                      // cancella o nasconde il form dopo che finisco di scrivere
+                                     
                 alertdialog.dismiss()
             }
 
@@ -226,7 +178,7 @@ view.btn_delete_note.setOnClickListener {
 
 
 
-true                // dima katkon m3a listener
+true                
 
 
  }
@@ -239,14 +191,7 @@ true                // dima katkon m3a listener
 
     }
 
-    // end
-
-
-
-
-
-    // daba devo leggere dalla fatabase firebase  read
-
+    
 
 override fun onStart() {
         super.onStart()
@@ -264,34 +209,28 @@ override fun onStart() {
 override fun onDataChange(DataSnapshot: DataSnapshot) {
 
 
-                // for (n in dataget.children)
+                
 
-                    mNoteList?.clear()    // hadi ista3metlha bach mayb9ach creee liya coppie zaydein dial note likanktab ok // questo serve per cancellare il vecchio note in list
-
-
-                for (nn in DataSnapshot.children) {                    // mnin tjib dawra jib liya m3ak children likaynin ldakhel lawlidat :)
+                    mNoteList?.clear()  
 
 
-                    var ddd = nn.getValue(noteClass::class.java)!!        // poi chiamo il nome del file class che ho cresato a parte
-
-                    // dopo che lo creato mi serve arraylist per dentro noteclass varialbile
-                    mNoteList!!.add(0, ddd)                             // had arraylist ghassni passarlo al listView
-
-                    // hna zedt 0 ma3nata ana note lighatkhol jida ghatblassa fi index zero  tbna hiya lawla
+                for (nn in DataSnapshot.children) {             
 
 
-                    // val value = dataSnapshot.getValue(String::class.java)
+                    var ddd = nn.getValue(noteClass::class.java)!!      
 
+                    mNoteList!!.add(0, ddd)                             
+
+                
 
                 }
 
 
-                // hna nacreee var min noteadapter
+                
 
                 var noteAdapter = NoteAdapter(applicationContext, mNoteList!!)
 
 
-                // ora prendo id listview  fin ghaytem irssal l9iyam min ba3d
 
                 note_list_view.adapter = noteAdapter
 
@@ -303,7 +242,7 @@ override fun onDataChange(DataSnapshot: DataSnapshot) {
     }
 
 
-    // hadchi kamel lilta7t per write scriver
+    
 
 
 
@@ -319,19 +258,18 @@ override fun onDataChange(DataSnapshot: DataSnapshot) {
 
 fun showDialogShow() {
 
-        var alertBuilder = AlertDialog.Builder(this)               // hna jabt dalla dial alertdialog
+        var alertBuilder = AlertDialog.Builder(this)               
 
         var viewq =
-            layoutInflater.inflate(R.layout.add_note, null)           // hna jebt layout  lifih template lghayban liya
+            layoutInflater.inflate(R.layout.add_note, null)           
 
 
 
-        alertBuilder.setView(viewq)                                            // hna fin ghayjib layout dakhel alertdialog
+        alertBuilder.setView(viewq)                                            
 
-        var alertDialog = alertBuilder.create()                   // hna bach 3teto amr creat // had creat khasso hta howa alertdialog ::jabto lih tahowa
+        var alertDialog = alertBuilder.create()                  
 
-
-        alertDialog.show()                                                      // hna 3teto amr show()
+        alertDialog.show()                                                 
 
 
 
@@ -340,15 +278,9 @@ fun showDialogShow() {
 
   viewq.btnSaveListener.setOnClickListener {
 
-            val titleoo = viewq.title_edit_text.text.toString()                          // hna jebt id editText
-            val notes = viewq.note_edit_text.text.toString()                             // hna jebt id editText
+            val titleoo = viewq.title_edit_text.text.toString()                         
+            val notes = viewq.note_edit_text.text.toString()                         
 
-
-            // hadi tari9a 3adiya
-            // myRef.child("tiltles").setValue(title)
-            // myRef.child("notess").setValue(notes)
-
-            // tari9a mota9adema   // hna irsal bayant
 
 
             if (titleoo.isNotEmpty() && notes.isNotEmpty()) {
@@ -363,8 +295,7 @@ fun showDialogShow() {
                         myRef!!.child(id).setValue(myNote)
 
 
-               // myRef!!.child("kora").setValue(myNote)                                // olala ghaydkol ojbect tani fin ndakhel les autres single string
-
+         
 
             } else {
 
@@ -377,7 +308,7 @@ fun showDialogShow() {
         }
 
 
-        // ghaussali hna  poi tattima dial code lilfo9 ghatssali hnaya
+        
 
 
     }
@@ -403,12 +334,6 @@ fun getCurrentDate(): String {
 
 
     }
-
-
-
-
-
-    //
 
 
 

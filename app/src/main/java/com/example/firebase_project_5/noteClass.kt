@@ -2,14 +2,6 @@ package com.example.firebase_project_5
 
 class noteClass{
 
-
-
-
-
-
-
-
-
     var id: String? = null
     var title: String? = null
     var note: String? = null

@@ -60,27 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
  note_list_view.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-
-
-
-
-
-
 
 
          var myNotes = mNoteList!!.get(position)
@@ -102,26 +82,9 @@ class MainActivity : AppCompatActivity() {
 
          startActivity(noteIntent)
 
-
-
-
-
-
-
-
-
  }
 
-
-
-
-
-
  note_list_view.onItemLongClickListener = AdapterView.OnItemLongClickListener { parent, view, position, id ->
-
-
-
-
 
 
      var alertBulder = AlertDialog.Builder(this)
@@ -149,9 +112,6 @@ class MainActivity : AppCompatActivity() {
 
    view.btn_update_note.setOnClickListener {
 
-
-
-       
 
 
        var afterUpdate = noteClass(myNoteforLonClick.id!!, view.title_delete.text.toString(), view.note_delete.text.toString(), getCurrentDate())
@@ -182,10 +142,6 @@ true
 
 
  }
-
-
-
-
 
 
 
@@ -241,21 +197,6 @@ override fun onDataChange(DataSnapshot: DataSnapshot) {
 
     }
 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 fun showDialogShow() {
 
         var alertBuilder = AlertDialog.Builder(this)               
@@ -308,20 +249,7 @@ fun showDialogShow() {
         }
 
 
-        
-
-
     }
-
-
-
-
-
-
-
-
-
-
 
 
 fun getCurrentDate(): String {
@@ -334,10 +262,5 @@ fun getCurrentDate(): String {
 
 
     }
-
-
-
-
-
 
 }
